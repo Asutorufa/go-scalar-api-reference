@@ -20,7 +20,7 @@ The Scalar package serves as a provider for the [Scalar](https://github.com/scal
 
 The package allows extensive customization of the generated API reference through the `Options` struct, supporting:
 
-- **CDN**: URL of the CDN to load additional scripts or styles.
+- **CDN**: Optional URL override for the Scalar browser script. By default, the script is embedded locally in the Go binary and no CDN request is required.
 - **Theme**: Customizable themes for styling the API reference.
 - **Layout**: Choice between modern and classic layout designs.
 - **SpecURL**: URL from which the specification content can be fetched.

@@ -1,5 +1,7 @@
 package scalar
 
+// DefaultCDN is retained as the default option value for compatibility. When
+// used by ApiReferenceHTML, it selects the bundled Scalar browser script.
 const DefaultCDN = "https://cdn.jsdelivr.net/npm/@scalar/api-reference"
 const CustomThemeCSS = `
 	/* basic theme */

@@ -34,6 +34,14 @@ func specContentHandler(specContent interface{}) string {
 	}
 }
 
+func apiReferenceScript(cdn string) string {
+	if cdn == DefaultCDN {
+		return "<script>" + embeddedAPIReference + "</script>"
+	}
+
+	return fmt.Sprintf(`<script src="%s"></script>`, cdn)
+}
+
 func ApiReferenceHTML(optionsInput *Options) (string, error) {
 	options := DefaultOptions(*optionsInput)
 
@@ -92,8 +100,8 @@ func ApiReferenceHTML(optionsInput *Options) (string, error) {
       </head>
       <body>
         <script id="api-reference" type="application/json" data-configuration="%s">%s</script>
-        <script src="%s"></script>
+        %s
       </body>
     </html>
-  `, pageTitle, customThemeCss, dataConfig, specContentHTML, options.CDN), nil
+  `, pageTitle, customThemeCss, dataConfig, specContentHTML, apiReferenceScript(options.CDN)), nil
 }
